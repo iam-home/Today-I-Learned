@@ -1,0 +1,6 @@
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+ctrl + D -> Log out
+
+password: bandit0
+Letshgo~!
