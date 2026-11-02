@@ -1,0 +1,39 @@
+페도라를 선택한 이유
+: 원래는 가장 만만한 우분투를 썼는데 왜인지 우분투보다는 새로운 걸 쓰고 싶었다. 또 우분투는 위험한 느낌이 안 들어서 재미가 덜 했다. 
+위험하고 재밌는 배포판을 생각해보면 아치 리눅스가 가장 먼저 떠올라서 아치를 써보려 했는데 내 환경상 termux를 사용해야 되는 제약이 있었고,
+아치는 안드로이드에서 쓰기에 아키텍처가 안 맞아서 너무 골 아픈 상황이 생길 거 같아서 일단 보류했다.
+데비안은 서버용이나 성능이 낮은 기기가 아닌 이상 굳이 쓸 메리트를 못 느꼈다.
+
+그래서 선택지가 없어서 페도라를 선택한 거긴 한데, 단단하면서 최신 기능을 쓸 수 있다길래 페도라가 나쁘진 않아 보인다.
+
+
+
+termux에서 설치 과정
+
+pkg update && pkg upgrade -y
+pkg install proot-distro -y
+proot-distro install fedora
+proot-distro login fedora
+
+echo "proot-distro login fedora" >> ~/.bashrc
+
+설치하고서 뭘 해볼까 하다가 lazyvim이랑 웹 브라우저를 설치했다.
+lazyvim은 그냥 하던 대로 했는데 이상하리 만큼 느리다. wsl에서는 괜찮았는데 termux에서는 왜 이러지
+내 태블릿의 칩셋이 디멘시티 9300+라 gpu 가속이 힘든 상황이라 웹 브라우저는 가급적이면 cli 기반으로 해보려고 했다. 뭐 gui 기반 웹 브라우저야 많이 봐왔으니까 딱히 안 궁금했음.
+자바스크립트가 되면서, 웹페이지가 깨지지 않고, 가독성이 좋은 웹 브라우저를 찾아봤는데 browsh가 눈에 띄었다.
+
+
+
+browsh 설치 과정
+
+dnf install firefox // 이거로 설치했었나 잘 기억이 안 나는데
+curl -o browsh.rpm -L https://github.com/browsh-org/browsh/releases/download/v1.8.2/browsh_1.8.2_linux_arm64.rpm
+rpm -uvh ./browsh.rpm
+rm ./browsh.rpm
+browsh
+
+
+
+아 근데 termux에서는 sudo 안 붙이는데 wsl에서는 sudo를 붙여야 되니까 헷갈림
+나중에 노트북을 사면 그때는 윈도우랑 아치 리눅스를 듀얼부팅으로 구성해볼까 생각 중임!
+그때까지는 일단 페도라를 써볼 듯
